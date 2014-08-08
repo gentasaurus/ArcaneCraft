@@ -1,0 +1,21 @@
+[
+{
+  "modid": "arcanecraft",
+  "name": "ArcaneCraft",
+  "description": "Bend the rules of Minecraft!",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Gentasaurus"
+  ],
+  "credits": "Created by Gentasaurus.",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

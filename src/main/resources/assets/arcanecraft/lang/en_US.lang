@@ -1,0 +1,13 @@
+item.arcanecraft:arcaniumDust.raw.name=Arcanium Dust
+item.arcanecraft:arcaniumDust.red.name=Corrupt Arcanium Dust
+item.arcanecraft:arcaniumDust.orange.name=Infused Arcanium Dust
+item.arcanecraft:arcaniumDust.yellow.name=Altered Arcanium Dust
+item.arcanecraft:arcaniumDust.green.name=Unstable Arcanium Dust
+item.arcanecraft:arcaniumDust.cyan.name=Charged Arcanium Dust
+item.arcanecraft:arcaniumDust.blue.name=Advanced Arcanium Dust
+item.arcanecraft:arcaniumDust.purple.name=Refined Arcanium Dust
+item.arcanecraft:arcaniumDust.pink.name=Neutralized Arcanium Dust
+
+tile.arcanecraft:something.name=Example Block
+
+itemGroup.arcanecraft=ArcaneCraft
