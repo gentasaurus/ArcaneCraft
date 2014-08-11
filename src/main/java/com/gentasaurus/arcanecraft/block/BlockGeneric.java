@@ -13,6 +13,7 @@ public class BlockGeneric extends Block
     public BlockGeneric(Material material)
     {
         super(material);
+        this.setHardness(2.0F);
         this.setCreativeTab(CreativeTabAC.tabArcaneCraft);
     }
 

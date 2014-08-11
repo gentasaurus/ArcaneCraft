@@ -10,10 +10,12 @@ import net.minecraft.item.Item;
 public class ModItems
 {
     public static final Item arcaniumDust = new ItemArcaniumDust();
+    public static final Item arcaneFuel = new ItemGeneric().setUnlocalizedName("arcaneFuel");
 
 
     public static void init()
     {
         GameRegistry.registerItem(arcaniumDust, "arcaniumDust");
+        GameRegistry.registerItem(arcaneFuel, "arcaneFuel");
     }
 }

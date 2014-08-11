@@ -8,6 +8,9 @@ item.arcanecraft:arcaniumDust.blue.name=Advanced Arcanium Dust
 item.arcanecraft:arcaniumDust.purple.name=Refined Arcanium Dust
 item.arcanecraft:arcaniumDust.pink.name=Neutralized Arcanium Dust
 
-tile.arcanecraft:something.name=Example Block
+tile.arcanecraft:arcaniumOre.name=Arcanium Ore
+tile.arcanecraft:runicCasing.name=Runic Casing
+tile.arcanecraft:arcaneOvenIdle.name=Arcane Oven
+tile.arcanecraft:arcaneOvenActive.name=Arcane Oven
 
 itemGroup.arcanecraft=ArcaneCraft
