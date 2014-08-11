@@ -29,7 +29,7 @@ public class TileEntityArcaneOven extends TileEntity implements ISidedInventory
 
     private ItemStack[] slots = new ItemStack[3];
 
-    public int furnaceSpeed = 20;
+    public int furnaceSpeed = 100;
     public int burnTime;
     public int currentItemBurnTime;
     public int cookTime;
