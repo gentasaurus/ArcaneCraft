@@ -90,7 +90,7 @@ public class TileEntityArcaneOven extends TileEntity implements ISidedInventory
                 Block block = Block.getBlockFromItem(item);
             }
 
-            if(item == ModItems.arcaneFuel) return 800;
+            if(item == ModItems.arcaneFuel) return 400;
         }
         return GameRegistry.getFuelValue(itemStack);
     }

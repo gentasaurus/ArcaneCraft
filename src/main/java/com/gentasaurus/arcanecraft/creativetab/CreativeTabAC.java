@@ -1,5 +1,6 @@
 package com.gentasaurus.arcanecraft.creativetab;
 
+import com.gentasaurus.arcanecraft.init.ModBlocks;
 import com.gentasaurus.arcanecraft.init.ModItems;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,7 +14,7 @@ public class CreativeTabAC
         @Override
         public Item getTabIconItem()
         {
-            return Items.boat;
+            return Item.getItemFromBlock(ModBlocks.runicCasing);
         }
     };
 }
