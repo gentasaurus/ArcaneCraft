@@ -9,12 +9,14 @@ import net.minecraft.item.Item;
 @GameRegistry.ObjectHolder(Reference.modid)
 public class ModItems
 {
+    public static final Item arcaniumDustRaw = new ItemGeneric().setUnlocalizedName("arcaniumDustRaw");
     public static final Item arcaniumDust = new ItemArcaniumDust();
     public static final Item arcaneFuel = new ItemGeneric().setUnlocalizedName("arcaneFuel");
 
 
     public static void init()
     {
+        GameRegistry.registerItem(arcaniumDustRaw, "arcaniumDustRaw");
         GameRegistry.registerItem(arcaniumDust, "arcaniumDust");
         GameRegistry.registerItem(arcaneFuel, "arcaneFuel");
     }
