@@ -29,7 +29,7 @@ public class TileEntityArcaneOven extends TileEntity implements ISidedInventory
 
     private ItemStack[] slots = new ItemStack[3];
 
-    public int furnaceSpeed = 100;
+    public int furnaceSpeed = 120;
     public int burnTime;
     public int currentItemBurnTime;
     public int cookTime;
@@ -90,7 +90,7 @@ public class TileEntityArcaneOven extends TileEntity implements ISidedInventory
                 Block block = Block.getBlockFromItem(item);
             }
 
-            if(item == ModItems.arcaneFuel) return 400;
+            if(item == ModItems.arcaneFuel) return 1600;
         }
         return GameRegistry.getFuelValue(itemStack);
     }

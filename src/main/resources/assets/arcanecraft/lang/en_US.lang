@@ -1,9 +1,14 @@
 item.arcanecraft:arcaniumDustRaw.name=Raw Arcanium Dust
 item.arcanecraft:arcaneFuel.name=Arcane Coal
+item.arcanecraft:waterStaff.name=Water Staff
+item.arcanecraft:reinforcedStick.name=Magic Rod
 
 tile.arcanecraft:arcaniumOre.name=Arcanium Ore
 tile.arcanecraft:runicCasing.name=Runic Casing
 tile.arcanecraft:arcaneOvenIdle.name=Arcane Oven
 tile.arcanecraft:arcaneOvenActive.name=Arcane Oven
+tile.arcanecraft:arcaneInfuser.name=Arcane Infuser
+tile.arcanecraft:packedGravel.name=Packed Gravel
+tile.arcanecraft:voidLamp.name=Void Lamp
 
 itemGroup.arcanecraft=ArcaneCraft

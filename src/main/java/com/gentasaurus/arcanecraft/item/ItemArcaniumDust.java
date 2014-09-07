@@ -27,7 +27,7 @@ public class ItemArcaniumDust extends ItemGeneric
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public static final String[] names = new String[] {"ignis", "aquam", "terra", "ventum", "tenebris"};
+    public static final String[] names = new String[] {"ignis", "aquam", "terra", "ventum", "tenebris", "lux", "immortui"};
 
     @Override
     public String getItemStackDisplayName(ItemStack p_77653_1_)

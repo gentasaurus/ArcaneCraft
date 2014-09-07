@@ -32,7 +32,7 @@ public class WorldGenArcane implements IWorldGenerator
 
     private void generateSurface(World world, Random random, int x, int z)
     {
-        this.addOreSpawn(ModBlocks.arcaniumOre, world, random, x, z, 16, 16, 4 + random.nextInt(2), 20, 5, 70);
+        this.addOreSpawn(ModBlocks.arcaniumOre, world, random, x, z, 16, 16, 4 + random.nextInt(2), 18, 5, 70);
     }
 
     private void generateNether(World world, Random random, int x, int z)

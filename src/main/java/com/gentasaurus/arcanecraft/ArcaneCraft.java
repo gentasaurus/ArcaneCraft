@@ -1,5 +1,6 @@
 package com.gentasaurus.arcanecraft;
 
+import com.gentasaurus.arcanecraft.handler.ArcaneFuelHandler;
 import com.gentasaurus.arcanecraft.handler.GuiHandler;
 import com.gentasaurus.arcanecraft.init.ModBlocks;
 import com.gentasaurus.arcanecraft.init.ModItems;
@@ -7,6 +8,7 @@ import com.gentasaurus.arcanecraft.init.Recipes;
 import com.gentasaurus.arcanecraft.proxy.CommonProxy;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityArcaneOven;
+import com.gentasaurus.arcanecraft.tileentity.TileEntityInfuser;
 import com.gentasaurus.arcanecraft.world.WorldGenArcane;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -21,6 +23,7 @@ public class ArcaneCraft
 {
 
     public static final int guiIDArcaneOven = 0;
+    public static final int guiIDArcaneInfuser = 1;
 
     @Mod.Instance(Reference.modid)
     public static ArcaneCraft instance;
@@ -40,8 +43,10 @@ public class ArcaneCraft
     {
         Recipes.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+        GameRegistry.registerFuelHandler(new ArcaneFuelHandler());
         GameRegistry.registerWorldGenerator(new WorldGenArcane(), 0);
         GameRegistry.registerTileEntity(TileEntityArcaneOven.class, "ArcaneOven");
+        GameRegistry.registerTileEntity(TileEntityInfuser.class, "ArcaneInfuser");
         proxy.registerStuff();
     }
 
