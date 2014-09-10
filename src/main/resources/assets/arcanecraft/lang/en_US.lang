@@ -1,7 +1,17 @@
 item.arcanecraft:arcaniumDustRaw.name=Raw Arcanium Dust
 item.arcanecraft:arcaneFuel.name=Arcane Coal
 item.arcanecraft:waterStaff.name=Water Staff
+item.arcanecraft:lavaStaff.name=Lava Staff
+item.arcanecraft:undeadStaff.name=Undead Staff
+item.arcanecraft:timeStaff.name=Time Staff
+item.arcanecraft:lightningPickaxe.name=Lightning Pickaxe
 item.arcanecraft:reinforcedStick.name=Magic Rod
+item.arcanecraft:armorStructure.name=Advanced Armor Structure
+
+item.arcanecraft:arcaneHelmet.name=Arcane Helmet
+item.arcanecraft:arcaneChestplate.name=Arcane Chestplate
+item.arcanecraft:arcaneLeggings.name=Arcane Leggings
+item.arcanecraft:arcaneBoots.name=Arcane Boots
 
 tile.arcanecraft:arcaniumOre.name=Arcanium Ore
 tile.arcanecraft:runicCasing.name=Runic Casing
