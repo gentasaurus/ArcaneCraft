@@ -14,7 +14,7 @@ item.arcanecraft:arcaneLeggings.name=Arcane Leggings
 item.arcanecraft:arcaneBoots.name=Arcane Boots
 
 elements.arcanecraft.ignis=Fire
-elements.arcanecraft.aquam=Water
+elements.arcanecraft.aqua=Water
 elements.arcanecraft.terra=Earth
 
 tile.arcanecraft:arcaniumOre.name=Arcanium Ore

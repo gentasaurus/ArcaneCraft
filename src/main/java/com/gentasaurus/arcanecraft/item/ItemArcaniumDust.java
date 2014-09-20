@@ -14,6 +14,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import org.apache.commons.lang3.text.WordUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemArcaniumDust extends ItemGeneric
@@ -29,7 +30,12 @@ public class ItemArcaniumDust extends ItemGeneric
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
 
-    public static final String[] names = new String[] {"ignis", "aqua", "terra", "ventum", "tenebris", "lux", "immortui", "lava", "glaciem", "fulgura", "plantatio", "turbo", "tempore", "lunam", "corrupta", "ignotus"};
+    public static final ArrayList<String> elements = new ArrayList<String>();
+
+    public static void addElement(String elementName)
+    {
+        elements.add(elementName);
+    }
 
     public String getElementName(ItemStack itemStack)
     {
@@ -90,7 +96,7 @@ public class ItemArcaniumDust extends ItemGeneric
     @Override
     public void registerIcons(IIconRegister iconRegister)
     {
-        icons = new IIcon[names.length];
+        icons = new IIcon[elements.size()];
 
         for (int i = 0; i < icons.length; i++)
         {
@@ -102,7 +108,9 @@ public class ItemArcaniumDust extends ItemGeneric
     public String getUnlocalizedName(ItemStack par1ItemStack)
     {
         int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
-        return super.getUnlocalizedName() + "." + names[i];
+        String[] elementArray = new String[elements.size()];
+        elementArray = elements.toArray(elementArray);
+        return super.getUnlocalizedName() + "." + elementArray[i];
     }
 
     @Override
@@ -116,7 +124,7 @@ public class ItemArcaniumDust extends ItemGeneric
     @Override
     public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        for (int x = 0; x < names.length; x++)
+        for (int x = 0; x < elements.size(); x++)
         {
             par3List.add(new ItemStack(this, 1, x));
         }

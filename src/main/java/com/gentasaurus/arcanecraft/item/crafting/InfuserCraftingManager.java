@@ -50,27 +50,26 @@ public class InfuserCraftingManager
         //
         this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 5), new Object[]
                 {"D R", 'D', ModItems.arcaniumDustRaw, 'R', new ItemStack(Items.dye, 1, 11)});
-        //
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 6), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 4), 'C', new ItemStack(ModItems.arcaniumDust, 1, 2), 'R', Items.rotten_flesh});
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 7), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 0), 'C', new ItemStack(ModItems.arcaniumDust, 1, 5), 'R', Items.lava_bucket});
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 8), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 1), 'C', new ItemStack(ModItems.arcaniumDust, 1, 2), 'R', Blocks.snow});
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 9), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 1), 'C', new ItemStack(ModItems.arcaniumDust, 1, 3), 'R', Items.redstone});
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 10), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 2), 'C', new ItemStack(ModItems.arcaniumDust, 1, 5), 'R', Blocks.red_flower});
-        //
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 11), new Object[]
-                {"DCR", 'D', new ItemStack(ModItems.arcaniumDust, 1, 3), 'C', new ItemStack(ModItems.arcaniumDust, 1, 3), 'R', new ItemStack(ModItems.arcaniumDust, 1, 3)});
 
         Collections.sort(this.recipes, new InfuserRecipeSorter(this));
+    }
+
+    public void addInfusion(int output, int primary, int secondary, Item reagent)
+    {
+            this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
+    }
+
+    public void addInfusion(int output, int primary, int secondary, Block reagent)
+    {
+            this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
+    }
+
+    public void addInfusion(int output, int primary, int secondary, ItemStack reagent)
+    {
+        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
     }
 
     public ShapedRecipesInfuser addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)

@@ -2,9 +2,7 @@ package com.gentasaurus.arcanecraft;
 
 import com.gentasaurus.arcanecraft.handler.ArcaneFuelHandler;
 import com.gentasaurus.arcanecraft.handler.GuiHandler;
-import com.gentasaurus.arcanecraft.init.ModBlocks;
-import com.gentasaurus.arcanecraft.init.ModItems;
-import com.gentasaurus.arcanecraft.init.Recipes;
+import com.gentasaurus.arcanecraft.init.*;
 import com.gentasaurus.arcanecraft.proxy.CommonProxy;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityArcaneOven;
@@ -34,6 +32,7 @@ public class ArcaneCraft
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        CoreDusts.init();
         ModBlocks.init();
         ModItems.init();
     }
@@ -42,6 +41,7 @@ public class ArcaneCraft
     public void init(FMLInitializationEvent event)
     {
         Recipes.init();
+        InfuserRecipes.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         GameRegistry.registerFuelHandler(new ArcaneFuelHandler());
         GameRegistry.registerWorldGenerator(new WorldGenArcane(), 0);

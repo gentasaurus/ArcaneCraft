@@ -1,5 +1,6 @@
 package com.gentasaurus.arcanecraft.init;
 
+import com.gentasaurus.arcanecraft.item.crafting.InfuserCraftingManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
@@ -9,9 +10,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes
 {
+
     public static void init()
     {
-
         GameRegistry.addRecipe(new ItemStack(ModBlocks.packedGravel, 2),
                 "GGG",
                 "GGG",
