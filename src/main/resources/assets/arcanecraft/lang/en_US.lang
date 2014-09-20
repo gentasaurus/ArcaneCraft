@@ -13,6 +13,10 @@ item.arcanecraft:arcaneChestplate.name=Arcane Chestplate
 item.arcanecraft:arcaneLeggings.name=Arcane Leggings
 item.arcanecraft:arcaneBoots.name=Arcane Boots
 
+elements.arcanecraft.ignis=Fire
+elements.arcanecraft.aquam=Water
+elements.arcanecraft.terra=Earth
+
 tile.arcanecraft:arcaniumOre.name=Arcanium Ore
 tile.arcanecraft:runicCasing.name=Runic Casing
 tile.arcanecraft:arcaneOvenIdle.name=Arcane Oven
