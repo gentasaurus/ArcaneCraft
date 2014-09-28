@@ -1,8 +1,8 @@
 package com.gentasaurus.arcanecraft.item.crafting;
 
-import java.util.Comparator;
-
 import net.minecraft.item.crafting.IRecipe;
+
+import java.util.Comparator;
 
 class InfuserRecipeSorter implements Comparator
 {

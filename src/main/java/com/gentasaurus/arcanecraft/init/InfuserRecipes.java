@@ -1,5 +1,6 @@
 package com.gentasaurus.arcanecraft.init;
 
+import com.gentasaurus.arcanecraft.item.ItemArcaniumDust;
 import com.gentasaurus.arcanecraft.item.crafting.InfuserCraftingManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -9,12 +10,12 @@ public class InfuserRecipes
 {
     public static void init()
     {
-        InfuserCraftingManager.getInstance().addInfusion(6, 4, 2, Items.rotten_flesh);
-        InfuserCraftingManager.getInstance().addInfusion(7, 0, 5, Items.lava_bucket);
-        InfuserCraftingManager.getInstance().addInfusion(8, 1, 2, Blocks.snow);
-        InfuserCraftingManager.getInstance().addInfusion(9, 1, 3, Items.redstone);
-        InfuserCraftingManager.getInstance().addInfusion(10, 2, 5, Blocks.red_flower);
-        InfuserCraftingManager.getInstance().addInfusion(11, 3, 3, new ItemStack(ModItems.arcaniumDust, 1, 3));
+        InfuserCraftingManager.getInstance().addInfusion("immortui", "tenebris", "terra", Items.rotten_flesh, 2);
+        InfuserCraftingManager.getInstance().addInfusion("lava", "ignis", "lux", Items.lava_bucket, 2);
+        InfuserCraftingManager.getInstance().addInfusion("glaciem", "aqua", "terra", Blocks.snow, 2);
+        InfuserCraftingManager.getInstance().addInfusion("fulgura", "lux", "terra", Items.redstone, 2);
+        InfuserCraftingManager.getInstance().addInfusion("plantatio", "terra", "lux", Blocks.red_flower, 2);
+        InfuserCraftingManager.getInstance().addInfusion("turbo", "ventum", "ventum", new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ventum")), 1);
     }
 
 }

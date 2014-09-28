@@ -12,9 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ArmorArcane extends ItemArmor{
 
@@ -92,6 +92,23 @@ public class ArmorArcane extends ItemArmor{
             {
                 itemStack.addEnchantment(Enchantment.blastProtection, 4);
             }
+        }
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par2List, boolean par4)
+    {
+        if(par1ItemStack.isItemEnchanted())
+        {
+            String prefix = "\u00A7e";
+            par2List.add(prefix + "ACTIVATED");
+        }
+        else
+        {
+            String prefix = "\u00A78";
+            par2List.add(prefix + "Currently not activated.");
+            par2List.add(prefix + "Equip to activate.");
         }
     }
 

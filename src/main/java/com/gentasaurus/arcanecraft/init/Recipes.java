@@ -1,18 +1,18 @@
 package com.gentasaurus.arcanecraft.init;
 
-import com.gentasaurus.arcanecraft.item.crafting.InfuserCraftingManager;
+import com.gentasaurus.arcanecraft.item.ItemArcaniumDust;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class Recipes
 {
 
     public static void init()
     {
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.glowstone_dust, 2), new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ignis")), new ItemStack(Items.dye, 1, 11));
+
         GameRegistry.addRecipe(new ItemStack(ModBlocks.packedGravel, 2),
                 "GGG",
                 "GGG",
@@ -47,55 +47,55 @@ public class Recipes
                 "WWW",
                 "WSA",
                 "WAS",
-                'S', ModItems.reinforcedStick, 'A', ModItems.arcaniumDustRaw, 'W', new ItemStack(ModItems.arcaniumDust, 1, 1));
+                'S', ModItems.reinforcedStick, 'A', ModItems.arcaniumDustRaw, 'W', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("aqua")));
 
         GameRegistry.addRecipe(new ItemStack(ModBlocks.voidLamp),
                 "GDG",
                 "LGL",
                 "GRG",
-                'G', Blocks.glass, 'R', Items.redstone, 'L', new ItemStack(ModItems.arcaniumDust, 1, 5), 'D', new ItemStack(ModItems.arcaniumDust, 1, 4));
+                'G', Blocks.glass, 'R', Items.redstone, 'L', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lux")), 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("tenebris")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.lavaStaff),
                 "LLL",
                 "LSF",
                 "LFS",
-                'S', ModItems.reinforcedStick, 'L', new ItemStack(ModItems.arcaniumDust, 1, 7), 'F', new ItemStack(ModItems.arcaniumDust, 1, 0));
+                'S', ModItems.reinforcedStick, 'L', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lava")), 'F', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ignis")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.undeadStaff),
                 "UUU",
                 "USD",
                 "UDS",
-                'S', ModItems.reinforcedStick, 'U', new ItemStack(ModItems.arcaniumDust, 1, 6), 'D', new ItemStack(ModItems.arcaniumDust, 1, 4));
+                'S', ModItems.reinforcedStick, 'U', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("immortui")), 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("tenebris")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.lightningPickaxe),
                 "OLO",
                 "LSL",
                 "LSL",
-                'S', ModItems.reinforcedStick, 'O', Blocks.obsidian, 'L', new ItemStack(ModItems.arcaniumDust, 1, 9));
+                'S', ModItems.reinforcedStick, 'O', Blocks.obsidian, 'L', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("fulgura")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.arcaneHelmet),
                 "DID",
                 "IHI",
                 "DID",
-                'H', ModItems.armorStructure, 'D', ModItems.arcaniumDustRaw, 'I', new ItemStack(ModItems.arcaniumDust, 1, 8));
+                'H', ModItems.armorStructure, 'D', ModItems.arcaniumDustRaw, 'I', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("glaciem")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.arcaneChestplate),
                 "DID",
                 "IHI",
                 "DID",
-                'H', ModItems.armorStructure, 'D', Blocks.cactus, 'I', new ItemStack(ModItems.arcaniumDust, 1, 10));
+                'H', ModItems.armorStructure, 'D', Blocks.cactus, 'I', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("plantatio")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.arcaneLeggings),
                 "DID",
                 "IHI",
                 "DID",
-                'H', ModItems.armorStructure, 'D', new ItemStack(ModItems.arcaniumDust, 1, 8), 'I', new ItemStack(ModItems.arcaniumDust, 1, 7));
+                'H', ModItems.armorStructure, 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("glaciem")), 'I', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lava")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.arcaneBoots),
                 "DID",
                 "IHI",
                 "DID",
-                'H', ModItems.armorStructure, 'D', new ItemStack(ModItems.arcaniumDust, 1, 11), 'I', new ItemStack(ModItems.arcaniumDust, 1, 3));
+                'H', ModItems.armorStructure, 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("turbo")), 'I', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ventum")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.armorStructure, 2),
                 "OHO",
@@ -104,26 +104,26 @@ public class Recipes
                 'O', Blocks.obsidian, 'H', Items.iron_helmet, 'C', Items.iron_chestplate, 'L', Items.iron_leggings, 'B', Items.iron_boots);
         //SHAPELESS
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.arcaneFuel, 2), new Object[]{
-                new ItemStack(Items.coal), new ItemStack(ModItems.arcaniumDust, 1, 0), new ItemStack(ModItems.arcaniumDust, 1, 5), new ItemStack(Items.iron_ingot)
+                new ItemStack(Items.coal), new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ignis")), new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lux")), new ItemStack(Items.iron_ingot)
         });
         //MISC.
         GameRegistry.addRecipe(new ItemStack(ModItems.waterStaff),
                 "WWW",
                 "WSW",
                 "WWW",
-                'S', new ItemStack(ModItems.waterStaff, 1, OreDictionary.WILDCARD_VALUE), 'W', new ItemStack(ModItems.arcaniumDust, 1, 1));
+                'S', new ItemStack(ModItems.waterStaff, 1, 20), 'W', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("aqua")));
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.lavaStaff),
                 "FLF",
                 "LSL",
                 "FLF",
-                'S', new ItemStack(ModItems.lavaStaff, 1, OreDictionary.WILDCARD_VALUE), 'F', new ItemStack(ModItems.arcaniumDust, 1, 0), 'L', new ItemStack(ModItems.arcaniumDust, 1, 7));
+                'S', new ItemStack(ModItems.lavaStaff, 1, 20), 'F', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ignis")), 'L', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lava")));
 
         //
         GameRegistry.addRecipe(new ItemStack(ModItems.undeadStaff),
                 "DUD",
                 "USU",
                 "DUD",
-                'S', new ItemStack(ModItems.undeadStaff, 1, OreDictionary.WILDCARD_VALUE), 'D', new ItemStack(ModItems.arcaniumDust, 1, 4), 'U', new ItemStack(ModItems.arcaniumDust, 1, 6));
+                'S', new ItemStack(ModItems.undeadStaff, 1, 20), 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("tenebris")), 'U', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("immortui")));
     }
 }

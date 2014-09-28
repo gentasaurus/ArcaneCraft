@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -31,7 +30,6 @@ public class ItemArcaniumDust extends ItemGeneric
     private IIcon[] icons;
 
     public static final ArrayList<String> elements = new ArrayList<String>();
-
     public static void addElement(String elementName)
     {
         elements.add(elementName);
@@ -39,7 +37,7 @@ public class ItemArcaniumDust extends ItemGeneric
 
     public String getElementName(ItemStack itemStack)
     {
-        String elementName = (("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(itemStack) + ".name")).trim()).replace("item.arcanecraft:arcaniumDust.", "").replace(".name", "");
+        String elementName = ("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(itemStack) + ".name")).trim().replace("item.arcanecraft:arcaniumDust.", "").replace(".name", "");
         return WordUtils.capitalize(elementName);
     }
 
@@ -47,7 +45,7 @@ public class ItemArcaniumDust extends ItemGeneric
     public String getItemStackDisplayName(ItemStack itemStack)
     {
         String dustName = "Arcanium Dust" + " - ";
-        return dustName + this.getElementName(itemStack);
+        return dustName + getElementName(itemStack);
     }
 
     public int getElementTier(ItemStack itemStack)
@@ -74,7 +72,7 @@ public class ItemArcaniumDust extends ItemGeneric
     {
         int damage = itemStack.getItemDamage();
         String elementType = this.getItemStackDisplayName(new ItemStack(this, 1, damage)).replace("Arcanium Dust - ", "");
-        String prefix = "\u00a78" + "Aspect of ";
+        String prefix = "\u00a78" + "Element of ";
         String elementTranslation = StatCollector.translateToLocal("elements.arcanecraft" + "." + elementType.toLowerCase());
 
         return prefix + elementTranslation;
@@ -100,14 +98,15 @@ public class ItemArcaniumDust extends ItemGeneric
 
         for (int i = 0; i < icons.length; i++)
         {
-            icons[i] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1) + this.getElementName(new ItemStack(this, 1, i)));
+            String textureName = (this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1) + this.getElementName(new ItemStack(this, 1, i))).replace("arcaniumDust", "dust/arcaniumDust");
+            icons[i] = iconRegister.registerIcon(textureName);
         }
     }
 
     @Override
     public String getUnlocalizedName(ItemStack par1ItemStack)
     {
-        int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
+        int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, elements.size());
         String[] elementArray = new String[elements.size()];
         elementArray = elements.toArray(elementArray);
         return super.getUnlocalizedName() + "." + elementArray[i];

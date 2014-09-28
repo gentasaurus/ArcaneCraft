@@ -1,7 +1,8 @@
 package com.gentasaurus.arcanecraft.proxy;
 
-public abstract class CommonProxy
+public class CommonProxyAC
 {
+
     public void registerStuff()
     {
 

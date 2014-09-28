@@ -2,7 +2,6 @@ package com.gentasaurus.arcanecraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityPotion;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -19,7 +18,7 @@ public class ItemUndeadStaff extends ItemStaff
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
         if(!world.isRemote)
         {
-            if(this.getDamage(itemStack) != 20)
+            if(this.getDamage(itemStack) != this.getMaxDamage())
             {
                 if (!world.isRemote)
                 {

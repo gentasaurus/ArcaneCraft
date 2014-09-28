@@ -1,6 +1,8 @@
 package com.gentasaurus.arcanecraft.inventory;
 
+import com.gentasaurus.arcanecraft.client.gui.GuiArcaneInfuser;
 import com.gentasaurus.arcanecraft.init.ModBlocks;
+import com.gentasaurus.arcanecraft.item.ItemArcaniumDust;
 import com.gentasaurus.arcanecraft.item.crafting.InfuserCraftingManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,12 +15,18 @@ public class ContainerInfuser extends Container
     public InventoryCrafting craftMatrix;
     public IInventory craftResult;
     private World worldObj;
+    private EntityPlayer currentUser;
+    public static boolean isCorrect;
+    public static String dustName;
     private int posX;
     private int posY;
     private int posZ;
 
     public ContainerInfuser(InventoryPlayer invPlayer, World world, int x, int y, int z)
     {
+        currentUser = invPlayer.player;
+        isCorrect = false;
+        dustName = "";
         craftMatrix = new InventoryCrafting(this, 3, 1);
         craftResult = new InventoryCraftResult();
         worldObj = world;
@@ -55,8 +63,22 @@ public class ContainerInfuser extends Container
      */
     public void onCraftMatrixChanged(IInventory p_75130_1_)
     {
-        craftResult.setInventorySlotContents(0, InfuserCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));
+        ItemStack outputItem = InfuserCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj);
+
+        craftResult.setInventorySlotContents(0, outputItem);
+
+        if(craftResult.getStackInSlot(0) != null)
+        {
+            ItemArcaniumDust arcaniumDust = new ItemArcaniumDust();
+            dustName = arcaniumDust.getElementName(craftResult.getStackInSlot(0));
+            isCorrect = true;
+        }
+        else
+        {
+            isCorrect = false;
+        }
     }
+
 
     /**
      * Called when the container is closed.

@@ -3,7 +3,7 @@ package com.gentasaurus.arcanecraft;
 import com.gentasaurus.arcanecraft.handler.ArcaneFuelHandler;
 import com.gentasaurus.arcanecraft.handler.GuiHandler;
 import com.gentasaurus.arcanecraft.init.*;
-import com.gentasaurus.arcanecraft.proxy.CommonProxy;
+import com.gentasaurus.arcanecraft.proxy.CommonProxyAC;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityArcaneOven;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityInfuser;
@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid= Reference.modid, name=Reference.modname, version=Reference.version)
+@Mod(modid=Reference.modid, name=Reference.modname, version=Reference.version)
 public class ArcaneCraft
 {
 
@@ -27,7 +27,7 @@ public class ArcaneCraft
     public static ArcaneCraft instance;
 
     @SidedProxy(clientSide = Reference.clientProxyClass, serverSide = Reference.serverProxyClass)
-    public static CommonProxy proxy;
+    public static CommonProxyAC proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)

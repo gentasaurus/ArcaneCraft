@@ -1,10 +1,8 @@
 package com.gentasaurus.arcanecraft.creativetab;
 
 import com.gentasaurus.arcanecraft.init.ModBlocks;
-import com.gentasaurus.arcanecraft.init.ModItems;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class CreativeTabAC

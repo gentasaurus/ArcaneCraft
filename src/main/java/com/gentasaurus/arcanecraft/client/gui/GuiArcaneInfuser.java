@@ -3,12 +3,13 @@ package com.gentasaurus.arcanecraft.client.gui;
 import com.gentasaurus.arcanecraft.inventory.ContainerInfuser;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
+import java.util.Random;
 
 public class GuiArcaneInfuser extends GuiContainer
 {
@@ -24,9 +25,13 @@ public class GuiArcaneInfuser extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRendererObj.drawString(StatCollector.translateToLocal("Arcane"), 6, 6, 0xEDEDED);
-        this.fontRendererObj.drawString(StatCollector.translateToLocal("Infuser"), 6, 15, 0xEDEDED);
+
+
+        this.fontRendererObj.drawString("Arcane", 6, 6, 0xEDEDED);
+        this.fontRendererObj.drawString("Infuser", 6, 15, 0xEDEDED);
     }
+
+
 
     /**
      * Draw the background layer for the GuiContainer (everything behind the items)

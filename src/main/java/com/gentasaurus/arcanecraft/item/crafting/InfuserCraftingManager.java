@@ -1,9 +1,8 @@
 package com.gentasaurus.arcanecraft.item.crafting;
 
-import java.util.*;
-
 import com.gentasaurus.arcanecraft.init.ModBlocks;
 import com.gentasaurus.arcanecraft.init.ModItems;
+import com.gentasaurus.arcanecraft.item.ItemArcaniumDust;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -12,6 +11,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 public class InfuserCraftingManager
 {
@@ -49,27 +53,39 @@ public class InfuserCraftingManager
                 {"D R", 'D', ModItems.arcaniumDustRaw, 'R', Items.bone});
         //
         this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, 5), new Object[]
-                {"D R", 'D', ModItems.arcaniumDustRaw, 'R', new ItemStack(Items.dye, 1, 11)});
+                {"D R", 'D', ModItems.arcaniumDustRaw, 'R', Items.glowstone_dust});
 
         Collections.sort(this.recipes, new InfuserRecipeSorter(this));
     }
 
-    public void addInfusion(int output, int primary, int secondary, Item reagent)
+    public void addInfusion(String output, String primary, String secondary, Item reagent, int amount)
     {
-            this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
-                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
+        int outputIndex = ItemArcaniumDust.elements.indexOf(output);
+        int primaryIndex = ItemArcaniumDust.elements.indexOf(primary);
+        int secondaryIndex = ItemArcaniumDust.elements.indexOf(secondary);
+
+            this.addRecipe(new ItemStack(ModItems.arcaniumDust, amount, outputIndex), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primaryIndex), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondaryIndex), 'R', reagent});
     }
 
-    public void addInfusion(int output, int primary, int secondary, Block reagent)
+    public void addInfusion(String output, String primary, String secondary, Block reagent, int amount)
     {
-            this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
-                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
+        int outputIndex = ItemArcaniumDust.elements.indexOf(output);
+        int primaryIndex = ItemArcaniumDust.elements.indexOf(primary);
+        int secondaryIndex = ItemArcaniumDust.elements.indexOf(secondary);
+
+        this.addRecipe(new ItemStack(ModItems.arcaniumDust, amount, outputIndex), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primaryIndex), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondaryIndex), 'R', reagent});
     }
 
-    public void addInfusion(int output, int primary, int secondary, ItemStack reagent)
+    public void addInfusion(String output, String primary, String secondary, ItemStack reagent, int amount)
     {
-        this.addRecipe(new ItemStack(ModItems.arcaniumDust, 1, output), new Object[]
-                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primary), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondary), 'R', reagent});
+        int outputIndex = ItemArcaniumDust.elements.indexOf(output);
+        int primaryIndex = ItemArcaniumDust.elements.indexOf(primary);
+        int secondaryIndex = ItemArcaniumDust.elements.indexOf(secondary);
+
+        this.addRecipe(new ItemStack(ModItems.arcaniumDust, amount, outputIndex), new Object[]
+                {"PSR", 'P', new ItemStack(ModItems.arcaniumDust, 1, primaryIndex), 'S', new ItemStack(ModItems.arcaniumDust, 1, secondaryIndex), 'R', reagent});
     }
 
     public ShapedRecipesInfuser addRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)

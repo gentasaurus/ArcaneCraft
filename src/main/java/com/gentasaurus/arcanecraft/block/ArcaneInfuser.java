@@ -3,7 +3,6 @@ package com.gentasaurus.arcanecraft.block;
 import com.gentasaurus.arcanecraft.ArcaneCraft;
 import com.gentasaurus.arcanecraft.creativetab.CreativeTabAC;
 import com.gentasaurus.arcanecraft.reference.Reference;
-import com.gentasaurus.arcanecraft.tileentity.TileEntityArcaneOven;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityInfuser;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

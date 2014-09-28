@@ -1,12 +1,14 @@
 package com.gentasaurus.arcanecraft.init;
 
-import com.gentasaurus.arcanecraft.block.*;
+import com.gentasaurus.arcanecraft.block.ArcaneInfuser;
+import com.gentasaurus.arcanecraft.block.ArcaneOven;
+import com.gentasaurus.arcanecraft.block.BlockArcaniumOre;
+import com.gentasaurus.arcanecraft.block.BlockGeneric;
 import com.gentasaurus.arcanecraft.creativetab.CreativeTabAC;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 
 @GameRegistry.ObjectHolder(Reference.modid)
 public class ModBlocks
