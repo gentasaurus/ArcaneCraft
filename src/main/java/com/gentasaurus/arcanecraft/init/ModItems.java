@@ -26,6 +26,7 @@ public class ModItems
     public static final Item waterStaff = new ItemWaterStaff().setUnlocalizedName("waterStaff");
     public static final Item lavaStaff = new ItemLavaStaff().setUnlocalizedName("lavaStaff");
     public static final Item undeadStaff = new ItemUndeadStaff().setUnlocalizedName("undeadStaff");
+    public static final Item arcaneMirror = new ItemArcaneMirror().setUnlocalizedName("arcaneMirror");
     //
     public static final Item reinforcedStick = new ItemGeneric().setFull3D().setUnlocalizedName("reinforcedStick");
     public static final Item armorStructure = new ItemGeneric().setUnlocalizedName("armorStructure");
@@ -46,6 +47,7 @@ public class ModItems
         GameRegistry.registerItem(waterStaff, "waterStaff");
         GameRegistry.registerItem(lavaStaff, "lavaStaff");
         GameRegistry.registerItem(undeadStaff, "undeadStaff");
+        GameRegistry.registerItem(arcaneMirror, "arcaneMirror");
         //
         GameRegistry.registerItem(reinforcedStick, "reinforcedStick");
         GameRegistry.registerItem(armorStructure, "armorStructure");

@@ -23,11 +23,6 @@ public class ItemStaff extends ItemGeneric
         this.setCreativeTab(CreativeTabAC.tabArcaneCraft);
     }
 
-    public void revertUse(ItemStack itemStack, EntityPlayer player)
-    {
-        itemStack.damageItem(-1, player);
-    }
-
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
         if(!world.isRemote)

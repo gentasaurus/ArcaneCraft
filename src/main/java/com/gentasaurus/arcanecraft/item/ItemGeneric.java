@@ -5,8 +5,11 @@ import com.gentasaurus.arcanecraft.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 
 public class ItemGeneric extends Item
@@ -45,5 +48,15 @@ public class ItemGeneric extends Item
     public static boolean isShiftKeyDown() {
 
         return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
+    }
+
+    public void sendPlayerMessage(String color, String message, EntityPlayer player, World world)
+    {
+        String prefix = "\u00A7" + color;
+
+        if(world.isRemote)
+        {
+            player.addChatMessage(new ChatComponentText(prefix + message));
+        }
     }
 }
