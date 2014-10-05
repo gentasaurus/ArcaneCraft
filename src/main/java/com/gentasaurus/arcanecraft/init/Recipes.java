@@ -102,6 +102,24 @@ public class Recipes
                 "COL",
                 "OBO",
                 'O', Blocks.obsidian, 'H', Items.iron_helmet, 'C', Items.iron_chestplate, 'L', Items.iron_leggings, 'B', Items.iron_boots);
+        //
+        GameRegistry.addRecipe(new ItemStack(ModItems.arcaneConduit),
+                " DE",
+                "DRD",
+                "ED ",
+                'R', ModItems.reinforcedStick, 'E', Items.ender_pearl, 'D', new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("fulgura")));
+        //
+        GameRegistry.addRecipe(new ItemStack(ModItems.crystalPearl),
+                "GDG",
+                "DED",
+                "GDG",
+                'D', Items.diamond, 'E', Items.ender_pearl, 'G', Blocks.glass);
+        //
+        GameRegistry.addRecipe(new ItemStack(ModItems.arcaneMirror),
+                "PCP",
+                "CGC",
+                "PCP",
+                'C', ModItems.arcaneConduit, 'P', ModItems.crystalPearl, 'G', Blocks.glass);
         //SHAPELESS
         GameRegistry.addShapelessRecipe(new ItemStack(ModItems.arcaneFuel, 2), new Object[]{
                 new ItemStack(Items.coal), new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("ignis")), new ItemStack(ModItems.arcaniumDust, 1, ItemArcaniumDust.elements.indexOf("lux")), new ItemStack(Items.iron_ingot)

@@ -4,8 +4,11 @@ import com.gentasaurus.arcanecraft.init.ModBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenPumpkin;
+import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces;
 
 import java.util.Random;
 
@@ -31,6 +34,17 @@ public class WorldGenArcane implements IWorldGenerator
 
     private void generateSurface(World world, Random random, int x, int z)
     {
+        BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
+        if ((biome == BiomesAC.biomeDarkSwamp))
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                int j = x + random.nextInt(16) + 8;
+                int k = z + random.nextInt(16) + 8;
+                int l = random.nextInt(world.getHeightValue(j, k) * 2);
+                (new WorldGenPumpkin()).generate(world, random, j, l, k);
+            }
+        }
         this.addOreSpawn(ModBlocks.arcaniumOre, world, random, x, z, 16, 16, 4 + random.nextInt(2), 18, 5, 70);
     }
 

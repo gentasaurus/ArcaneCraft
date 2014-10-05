@@ -50,9 +50,9 @@ public class ItemGeneric extends Item
         return Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT);
     }
 
-    public void sendPlayerMessage(String color, String message, EntityPlayer player, World world)
+    public void sendPlayerMessage(String format, String message, EntityPlayer player, World world)
     {
-        String prefix = "\u00A7" + color;
+        String prefix = "\u00A7" + format;
 
         if(world.isRemote)
         {

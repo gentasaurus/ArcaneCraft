@@ -18,7 +18,6 @@ public class ItemStaff extends ItemGeneric
         this.setFull3D();
         this.setNoRepair();
         this.setMaxDamage(20);
-        this.setHasSubtypes(true);
         this.setMaxStackSize(1);
         this.setCreativeTab(CreativeTabAC.tabArcaneCraft);
     }

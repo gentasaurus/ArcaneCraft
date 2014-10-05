@@ -3,9 +3,12 @@ item.arcanecraft:arcaneFuel.name=Arcane Coal
 item.arcanecraft:waterStaff.name=Staff of Endless Sea
 item.arcanecraft:lavaStaff.name=Staff of Hell's Fury
 item.arcanecraft:undeadStaff.name=Staff of Fatal Disease
+item.arcanecraft:enderStaff.name=Staff of Spacial Tear
 item.arcanecraft:lightningPickaxe.name=Lightning Pickaxe
 item.arcanecraft:reinforcedStick.name=Magic Rod
 item.arcanecraft:armorStructure.name=Advanced Armor Structure
+item.arcanecraft:arcaneConduit.name=Arcane Conduit
+item.arcanecraft:crystalPearl.name=Crystal Pearl
 item.arcanecraft:arcaneMirror.name=§dArcane Mirror
 
 item.arcanecraft:arcaneHelmet.name=Arcane Helmet
@@ -41,3 +44,19 @@ tile.arcanecraft:packedGravel.name=Packed Gravel
 tile.arcanecraft:voidLamp.name=Void Lamp
 
 itemGroup.arcanecraft=ArcaneCraft
+
+text.arcanecraft.tier=Tier
+text.arcanecraft.dimension=Dimension
+text.arcanecraft.dust.name=Arcanium Dust
+text.arcanecraft.dust.element=Element of
+text.arcanecraft.dust.primal=Primal Element
+text.arcanecraft.dust.complex=Complex Element
+text.arcanecraft.mirror.tooDeep=Failed to mark: destination is too deep.
+text.arcanecraft.mirror.marked=Destination marked.
+text.arcanecraft.mirror.alreadyMarked=Failed to mark: destination already marked.
+text.arcanecraft.mirror.resetInstructions=Shift-Click in the air to reset.
+text.arcanecraft.mirror.resetSuccessful=Destination reset.
+text.arcanecraft.mirror.warping=Warping...
+text.arcanecraft.mirror.noMarkWarp=Failed to warp: No destination marked.
+text.arcanecraft.mirror.noMark=No destination marked.
+text.arcanecraft.mirror.showCoords=Hold Shift to show coordinates.

@@ -1,14 +1,18 @@
 package com.gentasaurus.arcanecraft.item;
 
+import com.gentasaurus.arcanecraft.util.ACTextFormat;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Random;
 
 public class ItemArcaneMirror extends ItemGeneric
 {
@@ -18,14 +22,11 @@ public class ItemArcaneMirror extends ItemGeneric
         super();
         this.setMaxStackSize(1);
     }
+
     @Override
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
         if( par1ItemStack.stackTagCompound == null )
             par1ItemStack.setTagCompound( new NBTTagCompound( ) );
-
-        par1ItemStack.stackTagCompound.setDouble("MarkedX", 0.0);
-        par1ItemStack.stackTagCompound.setDouble("MarkedY", 0.0);
-        par1ItemStack.stackTagCompound.setDouble("MarkedZ", 0.0);
     }
 
     @Override
@@ -33,50 +34,45 @@ public class ItemArcaneMirror extends ItemGeneric
 
         if( itemStack.stackTagCompound == null )
             itemStack.setTagCompound( new NBTTagCompound( ) );
+        int dimension = itemStack.stackTagCompound.getInteger("Dimension");
         double markedX = itemStack.stackTagCompound.getDouble("MarkedX");
         double markedY = itemStack.stackTagCompound.getDouble("MarkedY");
         double markedZ = itemStack.stackTagCompound.getDouble("MarkedZ");
 
         if(markedX == 0.0 && markedY == 0.0 && markedZ == 0.0)
         {
+            int preD = dimension;
             double preX = markedX;
             double preY = markedY;
             double preZ = markedZ;
 
+            dimension = player.dimension;
             markedX = x + 0.5;
             markedY = y + 2.5;
             markedZ = z + 0.5;
             if(markedY < 10)
             {
-                this.sendPlayerMessage("c", "Failed to mark: destination is too deep.", player, world);
+                this.sendPlayerMessage(ACTextFormat.LIGHT_RED, ACTextFormat.localize("mirror.tooDeep"), player, world);
+                dimension = preD;
                 markedX = preX;
                 markedY = preY;
                 markedZ = preZ;
             }
             else
             {
-                if(player.dimension != 0)
-                {
-                    this.sendPlayerMessage("c", "Failed to mark: must be in the Overworld.", player, world);
-                    markedX = preX;
-                    markedY = preY;
-                    markedZ = preZ;
-                }
-                else
-                {
-                    this.sendPlayerMessage("a", "Destination marked.", player, world);
-                }
-
+                this.sendPlayerMessage(ACTextFormat.LIGHT_GREEN, ACTextFormat.localize("mirror.marked"), player, world);
+                world.playSoundAtEntity(player, "random.successful_hit", 1.0F, 1.0F);
             }
 
         }
         else
         {
-            this.sendPlayerMessage("c", "Failed to mark: destination already marked.", player, world);
-            this.sendPlayerMessage("c", "Shift-Click in the air to reset.", player, world);
+            this.sendPlayerMessage(ACTextFormat.LIGHT_RED, ACTextFormat.localize("mirror.alreadyMarked"), player, world);
+            this.sendPlayerMessage(ACTextFormat.LIGHT_RED, ACTextFormat.localize("mirror.resetInstructions"), player, world);
         }
 
 
+        itemStack.stackTagCompound.setInteger("Dimension", dimension);
         itemStack.stackTagCompound.setDouble("MarkedX", markedX);
         itemStack.stackTagCompound.setDouble("MarkedY", markedY);
         itemStack.stackTagCompound.setDouble("MarkedZ", markedZ);
@@ -88,41 +84,47 @@ public class ItemArcaneMirror extends ItemGeneric
     {
         if( itemStack.stackTagCompound == null )
             itemStack.setTagCompound( new NBTTagCompound( ) );
+        int dimension = itemStack.stackTagCompound.getInteger("Dimension");
         double markedX = itemStack.stackTagCompound.getDouble("MarkedX");
         double markedY = itemStack.stackTagCompound.getDouble("MarkedY");
         double markedZ = itemStack.stackTagCompound.getDouble("MarkedZ");
 
         if(player.isSneaking())
         {
+            dimension = 0;
             markedX = 0.0;
             markedY = 0.0;
             markedZ = 0.0;
-            this.sendPlayerMessage("f", "Destination reset.", player, world);
+            this.sendPlayerMessage(ACTextFormat.WHITE, ACTextFormat.localize("mirror.resetSuccessful"), player, world);
+            world.playSoundAtEntity(player, "random.pop", 1.0F, 1.0F);
         }
         else
         {
             if(markedX !=  0.0 && markedY != 0.0 && markedZ != 0.0)
             {
-                if(player.dimension == 0)
+                this.sendPlayerMessage(ACTextFormat.LIGHT_GREEN, ACTextFormat.localize("mirror.warping"), player, world);
+                if(player.dimension != dimension)
                 {
-                    this.sendPlayerMessage("a", "Warping...", player, world);
-                    player.setPositionAndUpdate(markedX, markedY - 1.5, markedZ);
-                    world.playSoundAtEntity(player, "mob.endermen.portal", 1.0F, 1.0F);
+                    player.travelToDimension(dimension);
                 }
-                else
+                player.setPositionAndUpdate(markedX, markedY - 1.5, markedZ);
+                for (int i = 0; i < 128; ++i)
                 {
-                    this.sendPlayerMessage("c", "Failed to warp: must be in the Overworld.", player, world);
+                    Random rand = new Random();
+                    world.spawnParticle("portal", player.posX - 1 + rand.nextDouble() * 2.0, player.posY - 1.5 + rand.nextDouble() * 2.0D, player.posZ - 1 + rand.nextDouble() * 2.0, 0, 0, 0);
                 }
+                world.playSoundAtEntity(player, "mob.endermen.portal", 1.0F, 1.0F);
 
             }
             else
             {
-                this.sendPlayerMessage("c", "Failed to warp: No destination marked.", player, world);
+                this.sendPlayerMessage(ACTextFormat.LIGHT_RED, ACTextFormat.localize("mirror.noMarkWarp"), player, world);
             }
 
         }
 
 
+        itemStack.stackTagCompound.setInteger("Dimension", dimension);
         itemStack.stackTagCompound.setDouble("MarkedX", markedX);
         itemStack.stackTagCompound.setDouble("MarkedY", markedY);
         itemStack.stackTagCompound.setDouble("MarkedZ", markedZ);
@@ -131,31 +133,33 @@ public class ItemArcaneMirror extends ItemGeneric
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister)
-    {
-        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par2List, boolean par4)
     {
         if( par1ItemStack.stackTagCompound == null )
             par1ItemStack.setTagCompound( new NBTTagCompound( ) );
+        int dimension = par1ItemStack.stackTagCompound.getInteger("Dimension");
         int markedX = (int)par1ItemStack.stackTagCompound.getDouble("MarkedX");
         int markedY = (int)par1ItemStack.stackTagCompound.getDouble("MarkedY");
         int markedZ = (int)par1ItemStack.stackTagCompound.getDouble("MarkedZ");
 
         if(markedX == 0 && markedY == 0 && markedZ == 0)
         {
-            par2List.add("No destination marked.");
+            par2List.add(ACTextFormat.localize("mirror.noMark"));
         }
         else
         {
-            par2List.add("Destination marked.");
-            par2List.add("X = " + markedX);
-            par2List.add("Y = " + markedY);
-            par2List.add("Z = " + markedZ);
+            par2List.add(ACTextFormat.localize("mirror.marked"));
+            if(!isShiftKeyDown())
+            {
+                par2List.add(ACTextFormat.localize("mirror.showCoords"));
+            }
+            else
+            {
+                par2List.add(ACTextFormat.localize("dimension") + " " + dimension);
+                par2List.add("X: " + markedX);
+                par2List.add("Y: " + (markedY - 1));
+                par2List.add("Z: " + markedZ);
+            }
         }
 
 

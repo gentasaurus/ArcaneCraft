@@ -1,5 +1,6 @@
 package com.gentasaurus.arcanecraft;
 
+import com.gentasaurus.arcanecraft.entity.EntityStaffPearl;
 import com.gentasaurus.arcanecraft.handler.ArcaneFuelHandler;
 import com.gentasaurus.arcanecraft.handler.GuiHandler;
 import com.gentasaurus.arcanecraft.init.*;
@@ -7,6 +8,7 @@ import com.gentasaurus.arcanecraft.proxy.CommonProxyAC;
 import com.gentasaurus.arcanecraft.reference.Reference;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityArcaneOven;
 import com.gentasaurus.arcanecraft.tileentity.TileEntityInfuser;
+import com.gentasaurus.arcanecraft.world.BiomesAC;
 import com.gentasaurus.arcanecraft.world.WorldGenArcane;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -14,7 +16,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 
 @Mod(modid=Reference.modid, name=Reference.modname, version=Reference.version)
 public class ArcaneCraft
@@ -32,9 +37,13 @@ public class ArcaneCraft
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        int acEntityID = 0;
+
         CoreDusts.init();
         ModBlocks.init();
         ModItems.init();
+        BiomesAC.init();
+        EntityRegistry.registerModEntity(EntityStaffPearl.class, "Staff Pearl", ++acEntityID, this, 64, 10, true);
     }
 
     @Mod.EventHandler
@@ -55,4 +64,6 @@ public class ArcaneCraft
     {
 
     }
+
+
 }

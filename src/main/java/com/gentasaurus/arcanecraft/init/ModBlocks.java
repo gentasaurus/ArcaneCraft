@@ -29,6 +29,6 @@ public class ModBlocks
         GameRegistry.registerBlock(arcaneOvenActive, "arcaneOvenActive");
         GameRegistry.registerBlock(arcaneInfuser, "arcaneInfuser");
         GameRegistry.registerBlock(packedGravel, "packedGravel");
-        GameRegistry.registerBlock(voidLamp, "voidlamp");
+        GameRegistry.registerBlock(voidLamp, "voidLamp");
     }
 }

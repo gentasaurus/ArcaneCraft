@@ -26,10 +26,15 @@ public class ModItems
     public static final Item waterStaff = new ItemWaterStaff().setUnlocalizedName("waterStaff");
     public static final Item lavaStaff = new ItemLavaStaff().setUnlocalizedName("lavaStaff");
     public static final Item undeadStaff = new ItemUndeadStaff().setUnlocalizedName("undeadStaff");
+    public static final Item enderStaff = new ItemEnderStaff().setUnlocalizedName("enderStaff");
+    //
     public static final Item arcaneMirror = new ItemArcaneMirror().setUnlocalizedName("arcaneMirror");
     //
     public static final Item reinforcedStick = new ItemGeneric().setFull3D().setUnlocalizedName("reinforcedStick");
     public static final Item armorStructure = new ItemGeneric().setUnlocalizedName("armorStructure");
+    public static final Item arcaneConduit = new ItemGeneric().setUnlocalizedName("arcaneConduit");
+    public static final Item crystalPearl = new ItemGeneric().setUnlocalizedName("crystalPearl");
+    public static final Item voidSingularity = new ItemGeneric().setUnlocalizedName("voidSingularity");
     //
     public static final Item lightningPickaxe = new ItemPickaxeBasic(lightning).setUnlocalizedName("lightningPickaxe");
 
@@ -47,10 +52,15 @@ public class ModItems
         GameRegistry.registerItem(waterStaff, "waterStaff");
         GameRegistry.registerItem(lavaStaff, "lavaStaff");
         GameRegistry.registerItem(undeadStaff, "undeadStaff");
+        GameRegistry.registerItem(enderStaff, "enderStaff");
+        //
         GameRegistry.registerItem(arcaneMirror, "arcaneMirror");
         //
         GameRegistry.registerItem(reinforcedStick, "reinforcedStick");
         GameRegistry.registerItem(armorStructure, "armorStructure");
+        GameRegistry.registerItem(arcaneConduit, "arcaneConduit");
+        GameRegistry.registerItem(crystalPearl, "crystalPearl");
+        GameRegistry.registerItem(voidSingularity, "voidSingularity");
         //
         GameRegistry.registerItem(lightningPickaxe, "lightningPickaxe");
     }

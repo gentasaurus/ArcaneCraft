@@ -8,28 +8,28 @@ public class CoreDusts
     public static void init()
     {
         //TIER 1
-        ItemArcaniumDust.addElement("ignis");
-        ItemArcaniumDust.addElement("aqua");
-        ItemArcaniumDust.addElement("terra");
-        ItemArcaniumDust.addElement("ventum");
-        ItemArcaniumDust.addElement("tenebris");
-        ItemArcaniumDust.addElement("lux");
+        ItemArcaniumDust.addElement("ignis");       //FIRE
+        ItemArcaniumDust.addElement("aqua");        //WATER
+        ItemArcaniumDust.addElement("terra");       //EARTH
+        ItemArcaniumDust.addElement("ventum");      //AIR
+        ItemArcaniumDust.addElement("tenebris");    //DARKNESS
+        ItemArcaniumDust.addElement("lux");         //LIGHT
 
         //TIER 2
-        ItemArcaniumDust.addElement("immortui");
-        ItemArcaniumDust.addElement("lava");
-        ItemArcaniumDust.addElement("glaciem");
-        ItemArcaniumDust.addElement("fulgura");
-        ItemArcaniumDust.addElement("plantatio");
-        ItemArcaniumDust.addElement("turbo");
+        ItemArcaniumDust.addElement("immortui");    //UNDEAD
+        ItemArcaniumDust.addElement("lava");        //LAVA
+        ItemArcaniumDust.addElement("glaciem");     //ICE
+        ItemArcaniumDust.addElement("fulgura");     //ENERGY
+        ItemArcaniumDust.addElement("plantatio");   //PLANTS
+        ItemArcaniumDust.addElement("turbo");       //WIND
 
-        //TIER 3
-        ItemArcaniumDust.addElement("ignotus");
-        ItemArcaniumDust.addElement("metalli");
-        ItemArcaniumDust.addElement("irrita");
-        ItemArcaniumDust.addElement("anima");
-        ItemArcaniumDust.addElement("corruptio");
-        ItemArcaniumDust.addElement("sanctorum");
+        //FINAL TIERS
+        ItemArcaniumDust.addElement("ignotus");     //UNKNOWN
+        ItemArcaniumDust.addElement("metalli");     //METAL
+        ItemArcaniumDust.addElement("irrita");      //VOID
+        ItemArcaniumDust.addElement("anima");       //LIFE
+        ItemArcaniumDust.addElement("corruptio");   //DISTORTION
+        ItemArcaniumDust.addElement("sanctorum");   //HALLOW
     }
     
 }

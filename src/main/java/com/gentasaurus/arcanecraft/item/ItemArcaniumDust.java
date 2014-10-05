@@ -1,6 +1,7 @@
 package com.gentasaurus.arcanecraft.item;
 
 import com.gentasaurus.arcanecraft.creativetab.CreativeTabAC;
+import com.gentasaurus.arcanecraft.util.ACTextFormat;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -44,35 +45,15 @@ public class ItemArcaniumDust extends ItemGeneric
     @Override
     public String getItemStackDisplayName(ItemStack itemStack)
     {
-        String dustName = "Arcanium Dust" + " - ";
+        String dustName = ACTextFormat.localize("dust.name") + " - ";
         return dustName + getElementName(itemStack);
-    }
-
-    public int getElementTier(ItemStack itemStack)
-    {
-        int damage = itemStack.getItemDamage();
-
-        if(damage > -1 && damage < 6)
-        {
-            return 1;
-        }
-        if(damage > 5 && damage < 12)
-        {
-            return 2;
-        }
-        if(damage > 11)
-        {
-            return 3;
-        }
-
-        return 0;
     }
 
     public String getElementTranslation(ItemStack itemStack)
     {
         int damage = itemStack.getItemDamage();
-        String elementType = this.getItemStackDisplayName(new ItemStack(this, 1, damage)).replace("Arcanium Dust - ", "");
-        String prefix = "\u00a78" + "Element of ";
+        String elementType = this.getItemStackDisplayName(new ItemStack(this, 1, damage)).replace(ACTextFormat.localize("dust.name") + " - ", "");
+        String prefix = "\u00a78" + ACTextFormat.localize("dust.element") +  " ";
         String elementTranslation = StatCollector.translateToLocal("elements.arcanecraft" + "." + elementType.toLowerCase());
 
         return prefix + elementTranslation;
@@ -83,10 +64,15 @@ public class ItemArcaniumDust extends ItemGeneric
     public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par2List, boolean par4)
     {
 
-        String tier = "\u00a78" + "Tier " + this.getElementTier(par1ItemStack) + " Element";
         par2List.add(this.getElementTranslation(par1ItemStack));
-        if(isShiftKeyDown())
-            par2List.add(tier);
+        if(par1ItemStack.getItemDamage() < 6)
+        {
+            par2List.add("\u00a78" + ACTextFormat.localize("dust.primal"));
+        }
+        else
+        {
+            par2List.add("\u00a78" + ACTextFormat.localize("dust.complex"));
+        }
 
     }
 
