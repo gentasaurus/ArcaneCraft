@@ -14,6 +14,7 @@ public class BlockGeneric extends Block
     {
         super(material);
         this.setHardness(2.0F);
+        this.setBlockTextureName(Reference.resourcePrefix + this.getUnlocalizedName());
         this.setCreativeTab(CreativeTabAC.tabArcaneCraft);
     }
 

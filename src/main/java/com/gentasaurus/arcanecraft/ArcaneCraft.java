@@ -1,6 +1,7 @@
 package com.gentasaurus.arcanecraft;
 
 import com.gentasaurus.arcanecraft.entity.EntityStaffPearl;
+import com.gentasaurus.arcanecraft.handler.ArcaneEventHandler;
 import com.gentasaurus.arcanecraft.handler.ArcaneFuelHandler;
 import com.gentasaurus.arcanecraft.handler.GuiHandler;
 import com.gentasaurus.arcanecraft.init.*;
@@ -20,6 +21,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid=Reference.modid, name=Reference.modname, version=Reference.version)
 public class ArcaneCraft
@@ -51,6 +53,8 @@ public class ArcaneCraft
     {
         Recipes.init();
         InfuserRecipes.init();
+        Achievements.init();
+        MinecraftForge.EVENT_BUS.register(new ArcaneEventHandler());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         GameRegistry.registerFuelHandler(new ArcaneFuelHandler());
         GameRegistry.registerWorldGenerator(new WorldGenArcane(), 0);

@@ -22,7 +22,7 @@ group= "com.gentasaurus.arcanecraft" // http://maven.apache.org/guides/mini/guid
 archivesBaseName = "ArcaneCraft"
 
 minecraft {
-    version = "1.7.10-10.13.0.1199"
+    version = "1.7.10-10.13.2.1230"
 }
 
 dependencies {

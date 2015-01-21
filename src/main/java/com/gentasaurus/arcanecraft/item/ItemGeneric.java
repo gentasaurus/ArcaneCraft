@@ -59,4 +59,9 @@ public class ItemGeneric extends Item
             player.addChatMessage(new ChatComponentText(prefix + message));
         }
     }
+
+    public boolean checkForItem(EntityPlayer player, Item ammo)
+    {
+        return player.inventory.hasItem(ammo);
+    }
 }

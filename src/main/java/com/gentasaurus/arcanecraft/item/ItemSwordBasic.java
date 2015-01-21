@@ -8,7 +8,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
-public class ItemSwordBasic extends ItemSword{
+public class ItemSwordBasic extends ItemSword
+{
 
     public ItemSwordBasic(ToolMaterial toolMaterial)
     {

@@ -11,7 +11,8 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ModItems
 {
     static ItemArmor.ArmorMaterial arcane = EnumHelper.addArmorMaterial("arcane", 750, new int[]{3, 8, 3, 2}, 0);
-    static Item.ToolMaterial lightning = EnumHelper.addToolMaterial("lightning", 3, 1561, 14.0F, 3.0F, 10);
+    static Item.ToolMaterial lightning = EnumHelper.addToolMaterial("lightning", 3, 1561, 14F, 0F, 10);
+    static Item.ToolMaterial soul_axe = EnumHelper.addToolMaterial("soul_axe", 1, 30, 2F, 10F - 4, 5);
 
     //Armor
     public static Item arcaneHelmet = new ArmorArcane(arcane, 3, 0).setUnlocalizedName("arcaneHelmet");
@@ -29,14 +30,17 @@ public class ModItems
     public static final Item enderStaff = new ItemEnderStaff().setUnlocalizedName("enderStaff");
     //
     public static final Item arcaneMirror = new ItemArcaneMirror().setUnlocalizedName("arcaneMirror");
+    public static final Item arcaneWrench = new ItemArcaneWrench().setUnlocalizedName("arcaneWrench");
     //
     public static final Item reinforcedStick = new ItemGeneric().setFull3D().setUnlocalizedName("reinforcedStick");
     public static final Item armorStructure = new ItemGeneric().setUnlocalizedName("armorStructure");
     public static final Item arcaneConduit = new ItemGeneric().setUnlocalizedName("arcaneConduit");
     public static final Item crystalPearl = new ItemGeneric().setUnlocalizedName("crystalPearl");
-    public static final Item voidSingularity = new ItemGeneric().setUnlocalizedName("voidSingularity");
+    public static final Item enemySoul = new ItemGeneric().setUnlocalizedName("enemySoul");
+    public static final Item soulCrystal = new ItemSoulCrystal().setUnlocalizedName("soulCrystal");
     //
     public static final Item lightningPickaxe = new ItemPickaxeBasic(lightning).setUnlocalizedName("lightningPickaxe");
+    public static final Item soulAxe = new ItemSwordBasic(soul_axe).setUnlocalizedName("soulAxe");
 
     public static void init()
     {
@@ -55,13 +59,16 @@ public class ModItems
         GameRegistry.registerItem(enderStaff, "enderStaff");
         //
         GameRegistry.registerItem(arcaneMirror, "arcaneMirror");
+        GameRegistry.registerItem(arcaneWrench, "arcaneWrench");
         //
         GameRegistry.registerItem(reinforcedStick, "reinforcedStick");
         GameRegistry.registerItem(armorStructure, "armorStructure");
         GameRegistry.registerItem(arcaneConduit, "arcaneConduit");
         GameRegistry.registerItem(crystalPearl, "crystalPearl");
-        GameRegistry.registerItem(voidSingularity, "voidSingularity");
+        GameRegistry.registerItem(enemySoul, "enemySoul");
+        GameRegistry.registerItem(soulCrystal, "soulCrystal");
         //
         GameRegistry.registerItem(lightningPickaxe, "lightningPickaxe");
+        GameRegistry.registerItem(soulAxe, "soulAxe");
     }
 }

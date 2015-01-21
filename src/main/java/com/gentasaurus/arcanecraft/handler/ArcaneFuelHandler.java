@@ -1,6 +1,7 @@
 package com.gentasaurus.arcanecraft.handler;
 
 import com.gentasaurus.arcanecraft.init.ModItems;
+import com.gentasaurus.arcanecraft.item.ItemArcaniumDust;
 import cpw.mods.fml.common.IFuelHandler;
 import net.minecraft.item.ItemStack;
 
@@ -12,7 +13,7 @@ public class ArcaneFuelHandler implements IFuelHandler
     {
         if(fuel.getItem() == ModItems.arcaniumDust)
         {
-            if(fuel.getItemDamage() == 0)
+            if(fuel.getItemDamage() == ItemArcaniumDust.elements.indexOf("ignis"))
             {
                 return 2000;
             }

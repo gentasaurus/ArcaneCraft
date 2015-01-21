@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -79,6 +80,15 @@ public class ArcaneOven extends BlockContainer{
     {
         super.onBlockAdded(world, x, y, z);
         this.setDefaultDirection(world, x, y, z);
+    }
+
+    public boolean isMultiblockStructure(World world, int x, int y, int z)
+    {
+        if(world.getBlock(x, y + 1, z) == Blocks.obsidian)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void setDefaultDirection(World world, int x, int y, int z) {
@@ -218,10 +228,13 @@ public class ArcaneOven extends BlockContainer{
     {
         if(!world.isRemote)
         {
-            FMLNetworkHandler.openGui(player, ArcaneCraft.instance, ArcaneCraft.guiIDArcaneOven, world, x, y, z);
+            if(isMultiblockStructure(world, x, y, z))
+            {
+                FMLNetworkHandler.openGui(player, ArcaneCraft.instance, ArcaneCraft.guiIDArcaneOven, world, x, y, z);
+                return true;
+            }
         }
-
-        return true;
+        return false;
     }
 
     @Override

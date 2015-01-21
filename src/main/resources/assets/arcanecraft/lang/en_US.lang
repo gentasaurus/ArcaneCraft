@@ -10,6 +10,10 @@ item.arcanecraft:armorStructure.name=Advanced Armor Structure
 item.arcanecraft:arcaneConduit.name=Arcane Conduit
 item.arcanecraft:crystalPearl.name=Crystal Pearl
 item.arcanecraft:arcaneMirror.name=§dArcane Mirror
+item.arcanecraft:soulAxe.name=Axe of the Reaper
+item.arcanecraft:enemySoul.name=Soul
+item.arcanecraft:soulCrystal.name=Soul Crystal
+item.arcanecraft:arcaneWrench.name=Arcane Wrench
 
 item.arcanecraft:arcaneHelmet.name=Arcane Helmet
 item.arcanecraft:arcaneChestplate.name=Arcane Chestplate
@@ -43,6 +47,14 @@ tile.arcanecraft:arcaneInfuser.name=Arcane Infuser
 tile.arcanecraft:packedGravel.name=Packed Gravel
 tile.arcanecraft:voidLamp.name=Void Lamp
 
+tile.arcanecraft:arcaneBrick.gray.name=Arcane Brick
+tile.arcanecraft:arcaneBrick.red.name=Red Arcane Brick
+tile.arcanecraft:arcaneBrick.yellow.name=Yellow Arcane Brick
+tile.arcanecraft:arcaneBrick.blue.name=Blue Arcane Brick
+tile.arcanecraft:arcaneBrick.green.name=Green Arcane Brick
+tile.arcanecraft:arcaneBrick.orange.name=Orange Arcane Brick
+tile.arcanecraft:arcaneBrick.purple.name=Purple Arcane Brick
+
 itemGroup.arcanecraft=ArcaneCraft
 
 text.arcanecraft.tier=Tier
@@ -60,3 +72,6 @@ text.arcanecraft.mirror.warping=Warping...
 text.arcanecraft.mirror.noMarkWarp=Failed to warp: No destination marked.
 text.arcanecraft.mirror.noMark=No destination marked.
 text.arcanecraft.mirror.showCoords=Hold Shift to show coordinates.
+
+achievement.darkSwamp=Dark Swamp
+achievement.darkSwamp.desc=So many pumpkins...
